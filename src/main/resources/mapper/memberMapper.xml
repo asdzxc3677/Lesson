@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+    <insert id="save" parameterType="member">
+        insert into member_Lesson(memberId, memberPassword, memberName, memberBirth, memberGender, memberEmail, memberPhone)
+            values (#{memberId}, #{memberPassword}, #{memberName}, #{memberBirth}, #{memberGender}, #{memberEmail}, #{memberPhone})
+    </insert>
+
+    <select id="duplicate" parameterType="String" resultType="String">
+        select memberId from member-Lesson where memebrId=#{memberId}
+    </select>
+
+    <select id="login" parameterType="member" resultType="member">
+        select * from member_Lesson where memberId=#{memberId} and memberPassword=#{memberPassword}
+    </select>
+</mapper>
